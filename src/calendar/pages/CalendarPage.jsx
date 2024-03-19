@@ -1,8 +1,8 @@
 import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-import { Navbar, CalendarEvent, CalendarModal } from "../";
-import { addHours } from 'date-fns';
+import { Navbar, CalendarEvent, CalendarModal, FabAddNew } from "../";
+
 import { localizer, getMessagesES } from '../../helpers';
 import { useState } from 'react';
 import { useUiStore, useCalendarStore } from '../../hooks';
@@ -10,7 +10,7 @@ import { useUiStore, useCalendarStore } from '../../hooks';
 export const CalendarPage = () => {
     
     const { toggleDateModal } = useUiStore();
-    const { events } = useCalendarStore();
+    const { events, setActiveEvent } = useCalendarStore();
 
     const [lastView, setLastView] = useState(localStorage.getItem('lastView') || 'month')
 
@@ -30,10 +30,14 @@ export const CalendarPage = () => {
         }
     }
 
+    const onSelect = ( event ) => {
+        // setActiveEvent( event );
+    } 
+
     const onClick = () => {
+        onSelect(); 
         toggleDateModal();  
     }
-
 
 
     const onViewChanged = ( event) => {
@@ -64,6 +68,7 @@ export const CalendarPage = () => {
             />
 
             <CalendarModal/>
+            <FabAddNew/>
         </>
     )
 }
