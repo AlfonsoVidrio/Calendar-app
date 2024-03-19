@@ -6,7 +6,7 @@ const tempEvent = {
     title: 'Cumpleaños del jefe',
     notes: 'Hay que comprar un regalo',
     start: new Date(),
-    end: addHours( new Date(), 2 ),
+    end: addHours(new Date(), 2),
     bgColor: '#fafafa',
     user: {
         _id: '123',
@@ -16,25 +16,52 @@ const tempEvent = {
 
 export const calendarSlice = createSlice({
     name: 'calendar',
-    initialState: { 
+    initialState: {
         events: [
             tempEvent
         ],
         activeEvent: null
     },
-    reducers: { 
-        onSetActiveEvent: ( state, { payload} ) => 
-        {
+    reducers: {
+        onSetActiveEvent: (state, { payload }) => {
             state.activeEvent = payload;
         },
-        onAddNewEvent: ( state, { payload }) => {
-            state.events.push( payload );
+        // reducer para agregar un nuevo evento
+        onAddNewEvent: (state, { payload }) => {
+            // agregar el nuevo evento al array de eventos
+            state.events.push(payload);
+            // actualizar el evento activo
             state.activeEvent = null;
+        },
+        // reducer para actualizar un evento
+        onUpdateEvent: (state, { payload }) => {
+            // actualizar el evento en el array de eventos
+            state.events = state.events.map(event => {
+                // si el evento es igual al evento que se esta actualizando
+                if (event._id === payload._id) {
+                    // retornar el evento actualizado
+                    return payload;
+                }
+                // si no es el evento que se esta actualizando, retornar el evento sin cambios
+                return event;
+            });
+        },
+        // reducer para eliminar un evento
+        onDeleteEvent: (state) => {
+            // si existe un evento activo
+            if (state.activeEvent) {
+                // filtrar el array de eventos para eliminar el evento activo
+                state.events = state.events.filter(event => event._id !== state.activeEvent._id);
+                // actualizar el evento activo a null
+                state.activeEvent = null;
+            }
         }
     },
 });
 
-export const { 
+export const {
     onSetActiveEvent,
-    onAddNewEvent
+    onAddNewEvent,
+    onUpdateEvent,
+    onDeleteEvent
 } = calendarSlice.actions;
