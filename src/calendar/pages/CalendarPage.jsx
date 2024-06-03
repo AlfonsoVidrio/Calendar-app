@@ -1,12 +1,10 @@
 import { Calendar } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
 import { Navbar, CalendarEvent, CalendarModal, FabAddNew, FabDelete } from "../";
-
 import { localizer, getMessagesES } from '../../helpers';
 import { useState } from 'react';
 import { useUiStore, useCalendarStore } from '../../hooks';
-import { to } from 'cli-color/move';
+
 
 export const CalendarPage = () => {
 
