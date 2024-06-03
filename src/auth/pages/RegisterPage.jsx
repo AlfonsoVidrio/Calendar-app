@@ -14,7 +14,7 @@ export const RegisterPage = () => {
 
     const registerSubmit = () => {
         event.preventDefault();
-        console.log('hola', registerName, registerEmail, registerPassword, registerPasswordConfirm);
+        console.log( registerName, registerEmail, registerPassword, registerPasswordConfirm);
     }
 
     return (
