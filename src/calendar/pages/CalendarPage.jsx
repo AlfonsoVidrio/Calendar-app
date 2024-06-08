@@ -29,13 +29,9 @@ export const CalendarPage = () => {
         }
     }
 
-    const onDoubleClick = ( event ) => {
-        openDateModal();
-
-      }
-
     const onSelect = (event) => {
         // console.log({ click: event });
+        openDateModal();
         setActiveEvent(event);
 
     }
@@ -64,7 +60,6 @@ export const CalendarPage = () => {
                 components={{
                     event: CalendarEvent
                 }}
-                onDoubleClickEvent={ onDoubleClick }
                 onSelectEvent={onSelect}
                 onView={onViewChanged}
             />
