@@ -19,7 +19,7 @@ export const useCalendarStore = () => {
 
   const startSavingEvent = async (calendarEvent) => {
 
-    if (calendarEvent._id) {
+    if (calendarEvent.id) {
       // actualizar
       dispatch(onUpdateEvent({ ...calendarEvent }))
     } else {

@@ -39,7 +39,7 @@ export const calendarSlice = createSlice({
             // actualizar el evento en el array de eventos
             state.events = state.events.map(event => {
                 // si el evento es igual al evento que se esta actualizando
-                if (event._id === payload._id) {
+                if (event.id === payload.id) {
                     // retornar el evento actualizado
                     return payload;
                 }
@@ -52,7 +52,7 @@ export const calendarSlice = createSlice({
             // si existe un evento activo
             if (state.activeEvent) {
                 // filtrar el array de eventos para eliminar el evento activo
-                state.events = state.events.filter(event => event._id !== state.activeEvent._id);
+                state.events = state.events.filter(event => event.id !== state.activeEvent.id);
                 // actualizar el evento activo a null
                 state.activeEvent = null;
             }
