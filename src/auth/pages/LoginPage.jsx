@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useAuthStore, useForm } from '../../hooks'
 import './LoginPage.css'
+import Swal from 'sweetalert2';
 
 const loginFormFields = {
     loginEmail: '',
@@ -9,7 +11,7 @@ const loginFormFields = {
 
 export const LoginPage = () => {
 
-    const { startLogin } = useAuthStore();
+    const { startLogin, errorMessage } = useAuthStore();
 
     const { loginEmail, loginPassword, onInputChange } = useForm( loginFormFields );
 
@@ -18,6 +20,13 @@ export const LoginPage = () => {
         startLogin({email:loginEmail, password:loginPassword});
         
     }
+
+    useEffect(() => {
+        if (errorMessage !== undefined){
+            Swal.fire('Error en la autenticación', errorMessage, 'error')
+        }
+    }, [errorMessage])
+    
 
     return (
         <div className="login-container">
