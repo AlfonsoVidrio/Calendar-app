@@ -16,7 +16,7 @@ export const CalendarPage = () => {
 
     const eventStyleGetter = (event, start, end, isSelected) => {
 
-        const isMyEvent = ( user.uid === event.user?._id );
+        const isMyEvent = ( user.uid === event.user?._id ) || ( user.uid === event.user?.uid );
 
         const style = {
             backgroundColor: isMyEvent ? '#347CF7' : '#465660',
@@ -77,7 +77,7 @@ export const CalendarPage = () => {
 
             <CalendarModal />
             <FabAddNew />
-            <FabDelete />
+            {/* <FabDelete /> */}
         </>
     )
 }

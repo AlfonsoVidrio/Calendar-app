@@ -7,6 +7,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from 'date-fns/locale/es';
 import { useCalendarStore, useUiStore } from '../../hooks';
+import { FabDelete } from './FabDelete';
 
 registerLocale('es', es);
 
@@ -161,7 +162,7 @@ return (
         ></textarea>
         <small id="emailHelp" className="form-text text-muted">Información adicional</small>
     </div>
-
+    <FabDelete />
     <button
         type="submit"
         className="btn btn-outline-primary btn-block"
