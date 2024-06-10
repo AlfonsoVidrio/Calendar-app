@@ -3,10 +3,8 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #12c2e9;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background-color: #343A40;
+
 }
 .login-box {
     width: 80%;
@@ -40,14 +38,15 @@
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background: #12c2e9;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+    background-color: #343A40;
     color: white;
     cursor: pointer;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.submit-button:hover {
+    background-color: #23272B;
 }
 
 .register-link {

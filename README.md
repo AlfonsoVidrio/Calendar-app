@@ -1,10 +1,8 @@
-# Calendar APP
+# Backend MERN - Calendar
 
-# Develoment pasos
+## Dev
 
-1. Renombrar el archivo .env.template por .env
-2. Hacer los cambios respectivos en la variables de entorno.
-
-```
-VITE_API_URL=http://localhost:4000/api
-```
+1. Instalar dependencias `npm install`
+2. Clonar el archivo `.env.template` y renombrarlo a `.env`
+3. Cambiar las variables de entorno acorde a tu configuración
+4. Correr el servidor `npm start`
